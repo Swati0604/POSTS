@@ -1,0 +1,31 @@
+// variables
+@import './variables/colors';
+@import './variables/mixins';
+
+// theme styles files
+@import './texts';
+@import './xtras';
+
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Poppins:wght@700;800&display=swap');
+
+// custom css
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  font-size: 14px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $white;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+// main content section

@@ -1,0 +1,154 @@
+// ######################################## //
+// ## TEXTS.SCSS ## //
+// ######################################## //
+
+// Font Primary
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Poppins:wght@700;800&display=swap');
+
+// Text Primary
+.text-theme-primary {
+  color: $theme-primary;
+}
+
+// Text Secondary
+.text-theme-secondary {
+  color: rgba($theme-secondary, 0.71);
+}
+
+// Text Info
+.text-theme-info {
+  color: $theme-info;
+}
+
+// Text Success
+.text-theme-success {
+  color: $theme-success;
+}
+
+// Text Danger
+.text-theme-danger {
+  color: $theme-danger;
+}
+
+// Text Cyan
+.text-theme-cyan {
+  color: darken($theme-cyan, 8%);
+}
+
+// Text Yellow
+.text-theme-yellow {
+  color: darken($theme-yellow, 10%);
+}
+
+// link text style
+.text-link {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none !important;
+}
+
+// input primary
+.input-primary {
+  font-size: 0.93rem;
+  color: $theme-secondary;
+  line-height: 1.5;
+}
+
+// Heading style
+.title1,
+.title2,
+.title3,
+.title4,
+.title5,
+.title6 {
+  margin: 0;
+  letter-spacing: -0.53px;
+}
+
+// styles
+.title1 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+}
+
+.title2 {
+  font-size: 32px;
+  line-height: 38.4px;
+  font-weight: 700;
+
+  @include desktop {
+    font-size: 36px;
+    line-height: 43.2px;
+    letter-spacing: -0.53px;
+  }
+}
+
+.title3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.title4 {
+  font-size: 22px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.title5 {
+  font-size: 20px;
+  line-height: 24.9px;
+  font-weight: 700;
+}
+
+.title6 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.41px;
+}
+
+// lead text
+.text-lead {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $gray-dark;
+
+  @include mobile {
+    word-break: break-word;
+  }
+
+  &.light {
+    opacity: 0.9;
+  }
+
+  &.gray {
+    color: $gray-light;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.font-500 {
+    font-weight: 500;
+  }
+}
+
+// lead text
+.text-sm {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.53px;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.66px;
+  letter-spacing: -0.53px;
+  margin: 0;
+}

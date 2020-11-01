@@ -1,0 +1,60 @@
+// ######################################## //
+// ## STYLES.SCSS ## //
+// ######################################## //
+
+@import '../../styles/variables/colors';
+@import '../../styles/variables/mixins';
+
+.tabs {
+  display: flex;
+  background: #f7f9fb;
+  border-radius: 36px;
+  width: 35%;
+  align-items: center;
+  display: flex;
+  padding: 0 8px;
+  justify-content: center;
+  height: 48px;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  .tab-button {
+    width: 245px;
+    text-align: center;
+    color: $theme-secondary;
+    height: 32px;
+    border-radius: 36px;
+    padding: 0 18px;
+    border: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background: none;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    transition: all 0.2s ease-in;
+
+    @include desktop {
+      width: 50%;
+      padding: 20px 0;
+    }
+
+    &.tab-button-active {
+      background: $btn-color;
+      color: $white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    .tab-text {
+      margin-bottom: 0;
+    }
+  }
+}

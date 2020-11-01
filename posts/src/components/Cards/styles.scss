@@ -1,0 +1,109 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+
+.job-cards-style {
+  background-color: $white;
+  border: 1px solid rgba(104, 112, 134, 0.1);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 11px 15px 21px 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .image-container {
+    height: 100px;
+    width: 100px;
+
+    .company-img {
+      width: 100%;
+      height: 100%;
+      margin-bottom: 12px;
+    }
+  }
+
+  .heading {
+    max-width: 322px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    color: $theme-primary;
+    margin-bottom: 8px;
+    margin-top: 12px;
+  }
+
+  .company-name {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 100%;
+    color: $theme-secondary;
+    margin-bottom: 0px;
+  }
+
+  .icons-text {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    .icons {
+      width: 12px;
+      height: 12px;
+      margin-right: 8px;
+    }
+
+    .requirement {
+      font-family: Nunito;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 100%;
+      color: $theme-secondary;
+      margin-bottom: 0;
+    }
+  }
+
+  .apply-btn {
+    background-color: #f7f9fb;
+    color: $btn-color;
+    border: none;
+    border-radius: 4px;
+    width: 96px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    margin-top: 18px;
+    transition: background-color 0.1s;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+      background-image: url('../../assets/images/NewTab.svg');
+      background-repeat: no-repeat;
+      background-position: 10% center;
+      background-color: $btn-color;
+      padding-left: 20px;
+      color: $white;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

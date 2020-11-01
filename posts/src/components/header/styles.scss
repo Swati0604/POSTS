@@ -1,0 +1,70 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+
+.navbar {
+  align-items: baseline;
+  padding-left: 0 !important;
+}
+
+.header-style {
+  padding-right: 70px;
+  padding-left: -10px;
+}
+.top-bar {
+  height: 70px;
+
+  .nav-link {
+    color: $theme-secondary;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    margin-right: 40px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+  }
+
+  .active {
+    position: relative;
+
+    .nav-link {
+      padding-left: 0px;
+      font-weight: 400;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: $white;
+      height: 2px;
+      width: 23px;
+    }
+  }
+
+  .sign-up-btn {
+    color: $white;
+    border-radius: 100px;
+    border: 2px solid rgba($white, 0.6);
+    width: 116px;
+    height: 46px;
+    margin-right: 40px;
+    opacity: 1;
+  }
+
+  .navbar-brand {
+    position: relative;
+    margin-top: 20px;
+  }
+
+  .logo {
+    color: $white;
+    height: 55px;
+    width: 231px;
+  }
+}
