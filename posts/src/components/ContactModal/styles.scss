@@ -1,0 +1,66 @@
+// ######################################## //
+// ## STYLES.SCSS ## //
+// ######################################## //
+
+@import '../../styles/variables/colors';
+@import '../../styles/variables/mixins';
+
+.payment-modal-style {
+  .modal-dialog {
+    margin-top: 15%;
+
+    max-width: 577px;
+
+    @include mobile {
+      margin-top: 30%;
+    }
+  }
+
+  .modal-content {
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    background-image: url('../../assets/images/Modal-Background.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+    height: 306px;
+  }
+
+  .highlighted-text {
+    color: #1e2432;
+  }
+
+  .modal-header {
+    border: none;
+  }
+
+  .close {
+    opacity: 1;
+    text-shadow: none;
+    font-size: 30px;
+    opacity: 0.6;
+    color: $theme-secondary;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .madal-heading {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    margin-top: 24px;
+    font-family: 'Poppins', sans-serif;
+    color: $theme-primary;
+  }
+
+  .description {
+    font-family: 'Nunito', sans-serif;
+    margin-top: 36px;
+    font-size: 18px;
+    line-height: 27px;
+    color: $theme-secondary;
+  }
+}

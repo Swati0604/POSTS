@@ -1,0 +1,32 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.footer-style {
+  .footer-text {
+    padding-bottom: 77px;
+    padding-top: 120px;
+    margin-bottom: 0px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: $theme-secondary;
+
+    @include mobile {
+      font-size: 14px;
+      line-height: 33px;
+      padding-top: 64px;
+    }
+  }
+
+  .highlighted-text {
+    color: #1e2432;
+  }
+}

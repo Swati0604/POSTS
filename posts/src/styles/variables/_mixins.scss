@@ -125,6 +125,13 @@ $desktop-large: 1920px;
   }
 }
 
+//Very Large Desktops
+@mixin desktop-extra-lg {
+  @media (min-width: #{$desktop-large}) {
+    @content;
+  }
+}
+
 // Large Desktops
 @mixin desktop-hd {
   @media (min-width: #{$desktop-width-lg}) {
@@ -158,7 +165,7 @@ $desktop-large: 1920px;
 // Brandon Grotesque Font Family
 // ----------------------------------
 @mixin ff-primary() {
-  font-family: "Gilroy Medium", sans-serif;
+  font-family: 'Gilroy Medium', sans-serif;
   line-height: 1.5;
 
   strong {

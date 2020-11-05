@@ -3,10 +3,17 @@ import locationIcon from '../../assets/images/location.svg';
 import jobTypeIcon from '../../assets/images/job-type.svg';
 // Style
 import './styles.scss';
+import ReadButton from '../ReadButton';
 
 class JobGuideCard extends Component {
   render() {
-    const { title, articleType, readingTime, href, cardImg } = this.props;
+    const {
+      title,
+      articleType,
+      readingTime,
+      cardImg,
+      selectedArticleId,
+    } = this.props;
     return (
       <div className='job-guide-cards-style'>
         <div className='image-container'>
@@ -26,9 +33,8 @@ class JobGuideCard extends Component {
             <img alt='icons' className='icons' src={locationIcon} />
             <p className='requirement'>{readingTime}</p>
           </div>
-          <a className='apply-btn' href={href} target='_blank' rel='noreferrer'>
-            Read More
-          </a>
+
+          <ReadButton selectedArticleId={selectedArticleId} />
         </div>
       </div>
     );

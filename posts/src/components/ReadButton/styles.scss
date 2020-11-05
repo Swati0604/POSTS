@@ -1,0 +1,46 @@
+// ######################################## //
+// ## SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.apply-btn {
+  background-color: #f7f9fb;
+  position: absolute;
+  bottom: 20px;
+  color: $btn-color;
+  border: none;
+  border-radius: 4px;
+  width: 96px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Nunito;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 100%;
+  margin-top: 18px;
+  transition: background-color 0.2s;
+  transition: background-position 0.2s;
+  transition: padding-right 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    background-image: url('../../assets/images/NewTab.svg');
+    background-repeat: no-repeat;
+    background-position: 90% center;
+    background-size: 12px;
+    background-color: $btn-color;
+    padding-right: 20px;
+    color: $white;
+  }
+}
+.button {
+  margin-top: 12px;
+}

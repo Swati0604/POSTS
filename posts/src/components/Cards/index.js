@@ -38,7 +38,9 @@ class Cards extends Component {
             <p className='requirement'>{location}</p>
           </div>
           <div className='icons-text'>
-            <img alt='icons' className='icons' src={experienceIcon} />
+            {this.props.experience && (
+              <img alt='icons' className='icons' src={experienceIcon} />
+            )}
             <p className='requirement'>{experience}</p>
           </div>
           <a className='apply-btn' href={href} target='_blank' rel='noreferrer'>
