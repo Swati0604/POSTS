@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Changelogs from './containers/Changelogs';
 import Home from './containers/Home';
 import JobGuide from './containers/JobGuide';
+import ScrollToTop from './components/ScrollToTop.js';
 
 class AppRouter extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router>
+        <ScrollToTop />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/job-guide/:id' component={JobGuide} />
@@ -15,7 +17,7 @@ class AppRouter extends Component {
 
           {/* Personal Information */}
         </Switch>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

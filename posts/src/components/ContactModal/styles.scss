@@ -54,6 +54,10 @@
     margin-top: 24px;
     font-family: 'Poppins', sans-serif;
     color: $theme-primary;
+
+    @include mobile {
+      font-size: 17px;
+    }
   }
 
   .description {
@@ -62,5 +66,9 @@
     font-size: 18px;
     line-height: 27px;
     color: $theme-secondary;
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
 }

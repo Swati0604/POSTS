@@ -1,20 +1,14 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import './styles.scss';
 
 const ReadButton = (props) => {
   return (
     <div className='button'>
-      <button
-        onClick={() =>
-          props.history.push(`/job-guide/${props.selectedArticleId}`)
-        }
-        className='apply-btn'
-      >
+      <a href={`/job-guide/${props.selectedArticleId}`} className='apply-btn'>
         Read More
-      </button>
+      </a>
     </div>
   );
 };
 
-export default withRouter(ReadButton);
+export default ReadButton;

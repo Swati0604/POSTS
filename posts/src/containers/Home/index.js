@@ -83,53 +83,6 @@ class Home extends Component {
               </p>
             </div>
 
-            {/* <form
-                action='https://gmail.us2.list-manage.com/subscribe/post?u=bf4ceef24090facb1db2bfd80&amp;id=d85073e06f'
-                method='post'
-                id='mc-embedded-subscribe-form'
-                name='mc-embedded-subscribe-form'
-                class='validate'
-                target='_blank'
-                novalidate
-              >
-                <div id='mc_embed_signup_scroll'>
-                  <input
-                    type='text'
-                    placeholder='Enter your Email address'
-                    className='register-input'
-                    value=''
-                    name='EMAIL'
-                    id='mce-EMAIL'
-                  />
-                  <div aria-hidden='true'></div>
-                  <input
-                    type='text'
-                    name='b_bf4ceef24090facb1db2bfd80_d85073e06f'
-                    tabindex='-1'
-                    value=''
-                    value='Subscribe'
-                    name='subscribe'
-                    id='mc-embedded-subscribe'
-                  />
-                  <button className='register-btn'>
-                    Register Now
-                    <br />
-                    <span className='btn-span-text'>
-                      and join 800+ Designers
-                    </span>
-                  </button>
-                  <div class='clear'>
-                    <input
-                      type='submit'
-                      value='Subscribe'
-                      name='subscribe'
-                      id='mc-embedded-subscribe'
-                      class='button'
-                    />
-                  </div>
-                </div>
-              </form> */}
-
             <form
               action='https://gmail.us2.list-manage.com/subscribe/post?u=bf4ceef24090facb1db2bfd80&amp;id=d85073e06f'
               method='post'
@@ -154,7 +107,7 @@ class Home extends Component {
                   name='subscribe'
                   id='mc-embedded-subscribe'
                 >
-                  Register Now
+                  Subscribe Now
                   <br />
                   <span className='btn-span-text'>and join 800+ Designers</span>
                 </button>
@@ -165,293 +118,305 @@ class Home extends Component {
           {/* <div className='update-info-container'>
           <p className='update-info'>🎉 Updating New Jobs in 4:00:00 Hrs</p>
         </div> */}
-          <div className='job-post-section'>
-            <div className='cards-container'>
-              <div className='cards-top-section'>
-                <div className='text-box'>
-                  <h5 className='post-heading'>Job Posts</h5>
-                  <p className='post-info-para'>
-                    <span className='highlighted-text'>
-                      {this.props.db.Sheet1.length}+ Design Jobs
-                    </span>{' '}
-                    are available, apply now.
-                  </p>
-                  <p className='post-info-para'>
-                    Last updated on{' '}
-                    {this.props.db.Sheet1.map(
-                      (data, index) =>
-                        index === this.props.db.Sheet1.length - 1 && (
-                          <span className='highlighted-text' key={index}>
-                            {data.Timestamp}
-                          </span>
-                        )
-                    )}
-                  </p>
+          <div className='background-container'>
+            {' '}
+            <div className='job-post-section'>
+              <div className='cards-container'>
+                <div className='cards-top-section'>
+                  <div className='text-box'>
+                    <h5 className='post-heading'>Job Posts</h5>
+                    <p className='post-info-para'>
+                      <span className='highlighted-text'>
+                        {this.props.db.Sheet1.length}+ Design Jobs
+                      </span>{' '}
+                      are available, apply now.
+                    </p>
+                    <p className='post-info-para'>
+                      Last updated on{' '}
+                      {this.props.db.Sheet1.map(
+                        (data, index) =>
+                          index === this.props.db.Sheet1.length - 1 && (
+                            <span className='highlighted-text' key={index}>
+                              {data.Timestamp}
+                            </span>
+                          )
+                      )}
+                    </p>
+                  </div>
+
+                  <Tabs
+                    tabsData={tabsData}
+                    tabIndex={tabIndex}
+                    changeTab={this.changeTab}
+                  />
                 </div>
 
-                <Tabs
-                  tabsData={tabsData}
-                  tabIndex={tabIndex}
-                  changeTab={this.changeTab}
-                />
-              </div>
-
-              <div className='row'>
-                {tabIndex === 1 &&
-                  this.props.db &&
-                  this.props.db.Sheet1 &&
-                  this.props.db.Sheet1.slice(0, this.state.visibleAll).map(
-                    (data, index) => {
-                      return (
-                        <div className='col-md-4' key={index}>
-                          <div className='cards'>
-                            <Cards
-                              companyImg={data.Logo}
-                              position={data.Position}
-                              company={data.Company}
-                              jobType={data.JobType}
-                              location={data.Location}
-                              experience={data.Experience}
-                              href={data.Link}
-                            />
+                <div className='row'>
+                  {tabIndex === 1 &&
+                    this.props.db &&
+                    this.props.db.Sheet1 &&
+                    this.props.db.Sheet1.slice(0, this.state.visibleAll).map(
+                      (data, index) => {
+                        return (
+                          <div className='col-md-4' key={index}>
+                            <div className='cards'>
+                              <Cards
+                                companyImg={data.Logo}
+                                position={data.Position}
+                                company={data.Company}
+                                jobType={data.JobType}
+                                location={data.Location}
+                                experience={data.Experience}
+                                href={data.Link}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      );
-                    }
-                  )}
-              </div>
+                        );
+                      }
+                    )}
+                </div>
 
-              {tabIndex === 1 &&
-                this.state.visibleAll < this.props.db.Sheet1.length && (
-                  <div className='load-more-btn-container'>
-                    <button
-                      onClick={this.loadMoreAll}
-                      type='button'
-                      className='load-more'
-                    >
-                      Load more
-                    </button>
-                  </div>
-                )}
-
-              <div className='null-container'>
                 {tabIndex === 1 &&
-                  this.props.db.Sheet1.length === 0 &&
-                  this.state.visibleFreelance < this.props.db.Sheet1.length && (
-                    <div class='null-type-container'>
-                      <img
-                        src={notFound}
-                        alt='not-found'
-                        className='null-image'
-                      />
-                      <p className='null-heading'>
-                        Sorry! We couldn’t find anything here.
-                      </p>
-                      <p className='null-text'>
-                        Check back in some time. It’s a good thing we update the
-                        jobs twice a week. <br />
-                        So, finger crossed 🤞.
-                      </p>
+                  this.state.visibleAll < this.props.db.Sheet1.length && (
+                    <div className='load-more-btn-container'>
+                      <button
+                        onClick={this.loadMoreAll}
+                        type='button'
+                        className='load-more'
+                      >
+                        Load more
+                      </button>
                     </div>
                   )}
-              </div>
 
-              <div className='row'>
-                {tabIndex === 2 &&
-                  this.props.db &&
-                  this.props.db.Sheet1 &&
-                  this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Full Time'
-                  )
-                    .slice(0, this.state.visibleFullTime)
-                    .map((data, index) => {
-                      return (
-                        <div className='col-md-4' key={index}>
-                          <div className='cards'>
-                            <Cards
-                              companyImg={data.Logo}
-                              position={data.Position}
-                              company={data.Company}
-                              jobType={data.JobType}
-                              location={data.Location}
-                              experience={data.Experience}
-                              href={data.Link}
-                            />
+                <div className='null-container'>
+                  {tabIndex === 1 &&
+                    this.props.db.Sheet1.length === 0 &&
+                    this.state.visibleFreelance <
+                      this.props.db.Sheet1.length && (
+                      <div class='null-type-container'>
+                        <img
+                          src={notFound}
+                          alt='not-found'
+                          className='null-image'
+                        />
+                        <p className='null-heading'>
+                          Sorry! We couldn’t find anything here.
+                        </p>
+                        <p className='null-text'>
+                          Check back in some time. It’s a good thing we update
+                          the jobs twice a week. <br />
+                          So, finger crossed 🤞.
+                        </p>
+                      </div>
+                    )}
+                </div>
+
+                <div className='row'>
+                  {tabIndex === 2 &&
+                    this.props.db &&
+                    this.props.db.Sheet1 &&
+                    this.props.db.Sheet1.filter(
+                      (data) =>
+                        data.JobType === 'Full Time' ||
+                        data.JobType === 'Full Time, Work from Home (Remote)'
+                    )
+                      .slice(0, this.state.visibleFullTime)
+                      .map((data, index) => {
+                        return (
+                          <div className='col-md-4' key={index}>
+                            <div className='cards'>
+                              <Cards
+                                companyImg={data.Logo}
+                                position={data.Position}
+                                company={data.Company}
+                                jobType={data.JobType}
+                                location={data.Location}
+                                experience={data.Experience}
+                                href={data.Link}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-              </div>
+                        );
+                      })}
+                </div>
 
-              {tabIndex === 2 &&
-                this.state.visibleFullTime < this.props.db.Sheet1.length && (
-                  <div className='load-more-btn-container'>
-                    <button
-                      onClick={this.loadMoreFullTime}
-                      type='button'
-                      className='load-more'
-                    >
-                      Load more
-                    </button>
-                  </div>
-                )}
-
-              <div className='null-container'>
                 {tabIndex === 2 &&
-                  this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Full Time'
-                  ).length === 0 &&
-                  this.state.visibleFreelance < this.props.db.Sheet1.length && (
-                    <div class='null-type-container'>
-                      <img
-                        src={notFound}
-                        alt='not-found'
-                        className='null-image'
-                      />
-                      <p className='null-heading'>
-                        Sorry! We couldn’t find anything here.
-                      </p>
-                      <p className='null-text'>
-                        Check back in some time. It’s a good thing we update the
-                        jobs twice a week. <br />
-                        So, finger crossed 🤞.
-                      </p>
+                  this.state.visibleFullTime < this.props.db.Sheet1.length && (
+                    <div className='load-more-btn-container'>
+                      <button
+                        onClick={this.loadMoreFullTime}
+                        type='button'
+                        className='load-more'
+                      >
+                        Load more
+                      </button>
                     </div>
                   )}
-              </div>
 
-              <div className='row'>
-                {tabIndex === 3 &&
-                  this.props.db &&
-                  this.props.db.Sheet1 &&
-                  this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Internship'
-                  )
-                    .slice(0, this.state.visibleInternship)
-                    .map((data, index) => {
-                      return (
-                        <div className='col-md-4' key={index}>
-                          <div className='cards'>
-                            <Cards
-                              companyImg={data.Logo}
-                              position={data.Position}
-                              company={data.Company}
-                              jobType={data.JobType}
-                              location={data.Location}
-                              experience={data.Experience}
-                              href={data.Link}
-                            />
+                <div className='null-container'>
+                  {tabIndex === 2 &&
+                    this.props.db.Sheet1.filter(
+                      (data) =>
+                        data.JobType === 'Full Time' ||
+                        data.JobType === 'Full Time, Work from Home (Remote)'
+                    ).length === 0 &&
+                    this.state.visibleFreelance <
+                      this.props.db.Sheet1.length && (
+                      <div class='null-type-container'>
+                        <img
+                          src={notFound}
+                          alt='not-found'
+                          className='null-image'
+                        />
+                        <p className='null-heading'>
+                          Sorry! We couldn’t find anything here.
+                        </p>
+                        <p className='null-text'>
+                          Check back in some time. It’s a good thing we update
+                          the jobs twice a week. <br />
+                          So, finger crossed 🤞.
+                        </p>
+                      </div>
+                    )}
+                </div>
+
+                <div className='row'>
+                  {tabIndex === 3 &&
+                    this.props.db &&
+                    this.props.db.Sheet1 &&
+                    this.props.db.Sheet1.filter(
+                      (data) => data.JobType === 'Internship'
+                    )
+                      .slice(0, this.state.visibleInternship)
+                      .map((data, index) => {
+                        return (
+                          <div className='col-md-4' key={index}>
+                            <div className='cards'>
+                              <Cards
+                                companyImg={data.Logo}
+                                position={data.Position}
+                                company={data.Company}
+                                jobType={data.JobType}
+                                location={data.Location}
+                                experience={data.Experience}
+                                href={data.Link}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-              </div>
+                        );
+                      })}
+                </div>
 
-              {tabIndex === 3 &&
-                this.props.db.Sheet1.filter(
-                  (data) => data.JobType === 'Internship'
-                ).length > 9 &&
-                this.state.visibleInternship < this.props.db.Sheet1.length && (
-                  <div className='load-more-btn-container'>
-                    <button
-                      onClick={this.loadMoreInternship}
-                      type='button'
-                      className='load-more'
-                    >
-                      Load more
-                    </button>
-                  </div>
-                )}
-
-              <div className='null-container'>
                 {tabIndex === 3 &&
                   this.props.db.Sheet1.filter(
                     (data) => data.JobType === 'Internship'
-                  ).length === 0 &&
-                  this.state.visibleFreelance < this.props.db.Sheet1.length && (
-                    <div class='null-type-container'>
-                      <img
-                        src={notFound}
-                        alt='not-found'
-                        className='null-image'
-                      />
-                      <p className='null-heading'>
-                        Sorry! We couldn’t find anything here.
-                      </p>
-                      <p className='null-text'>
-                        Check back in some time. It’s a good thing we update the
-                        jobs twice a week. <br />
-                        So, finger crossed 🤞.
-                      </p>
+                  ).length > 9 &&
+                  this.state.visibleInternship <
+                    this.props.db.Sheet1.length && (
+                    <div className='load-more-btn-container'>
+                      <button
+                        onClick={this.loadMoreInternship}
+                        type='button'
+                        className='load-more'
+                      >
+                        Load more
+                      </button>
                     </div>
                   )}
-              </div>
 
-              <div className='row'>
-                {tabIndex === 4 &&
-                  this.props.db &&
-                  this.props.db.Sheet1 &&
-                  this.props.db.Sheet1.filter(
-                    (data) => data.JobType === 'Freelance'
-                  )
-                    .slice(0, this.state.visibleFreelance)
-                    .map((data, index) => {
-                      return (
-                        <div className='col-md-4' key={index}>
-                          <div className='cards'>
-                            <Cards
-                              companyImg={data.Logo}
-                              position={data.Position}
-                              company={data.Company}
-                              jobType={data.JobType}
-                              location={data.Location}
-                              experience={data.Experience}
-                              href={data.Link}
-                            />
+                <div className='null-container'>
+                  {tabIndex === 3 &&
+                    this.props.db.Sheet1.filter(
+                      (data) => data.JobType === 'Internship'
+                    ).length === 0 &&
+                    this.state.visibleFreelance <
+                      this.props.db.Sheet1.length && (
+                      <div class='null-type-container'>
+                        <img
+                          src={notFound}
+                          alt='not-found'
+                          className='null-image'
+                        />
+                        <p className='null-heading'>
+                          Sorry! We couldn’t find anything here.
+                        </p>
+                        <p className='null-text'>
+                          Check back in some time. It’s a good thing we update
+                          the jobs twice a week. <br />
+                          So, finger crossed 🤞.
+                        </p>
+                      </div>
+                    )}
+                </div>
+
+                <div className='row'>
+                  {tabIndex === 4 &&
+                    this.props.db &&
+                    this.props.db.Sheet1 &&
+                    this.props.db.Sheet1.filter(
+                      (data) => data.JobType === 'Freelance'
+                    )
+                      .slice(0, this.state.visibleFreelance)
+                      .map((data, index) => {
+                        return (
+                          <div className='col-md-4' key={index}>
+                            <div className='cards'>
+                              <Cards
+                                companyImg={data.Logo}
+                                position={data.Position}
+                                company={data.Company}
+                                jobType={data.JobType}
+                                location={data.Location}
+                                experience={data.Experience}
+                                href={data.Link}
+                              />
+                            </div>
                           </div>
-                        </div>
-                      );
-                    })}
-              </div>
+                        );
+                      })}
+                </div>
 
-              {tabIndex === 4 &&
-                this.props.db.Sheet1.filter(
-                  (data) => data.JobType === 'Freelance'
-                ).length > 9 &&
-                this.state.visibleFreelance < this.props.db.Sheet1.length && (
-                  <div className='load-more-btn-container'>
-                    <button
-                      onClick={this.loadMoreFreelance}
-                      type='button'
-                      className='load-more'
-                    >
-                      Load more
-                    </button>
-                  </div>
-                )}
-
-              <div className='null-container'>
                 {tabIndex === 4 &&
                   this.props.db.Sheet1.filter(
                     (data) => data.JobType === 'Freelance'
-                  ).length === 0 &&
+                  ).length > 9 &&
                   this.state.visibleFreelance < this.props.db.Sheet1.length && (
-                    <div class='null-type-container'>
-                      <img
-                        src={notFound}
-                        alt='not-found'
-                        className='null-image'
-                      />
-                      <p className='null-heading'>
-                        Sorry! We couldn’t find anything here.
-                      </p>
-                      <p className='null-text'>
-                        Check back in some time. It’s a good thing we update the
-                        jobs twice a week. <br />
-                        So, finger crossed 🤞.
-                      </p>
+                    <div className='load-more-btn-container'>
+                      <button
+                        onClick={this.loadMoreFreelance}
+                        type='button'
+                        className='load-more'
+                      >
+                        Load more
+                      </button>
                     </div>
                   )}
+
+                <div className='null-container'>
+                  {tabIndex === 4 &&
+                    this.props.db.Sheet1.filter(
+                      (data) => data.JobType === 'Freelance'
+                    ).length === 0 &&
+                    this.state.visibleFreelance <
+                      this.props.db.Sheet1.length && (
+                      <div class='null-type-container'>
+                        <img
+                          src={notFound}
+                          alt='not-found'
+                          className='null-image'
+                        />
+                        <p className='null-heading'>
+                          Sorry! We couldn’t find anything here.
+                        </p>
+                        <p className='null-text'>
+                          Check back in some time. It’s a good thing we update
+                          the jobs twice a week. <br />
+                          So, finger crossed 🤞.
+                        </p>
+                      </div>
+                    )}
+                </div>
               </div>
             </div>
           </div>

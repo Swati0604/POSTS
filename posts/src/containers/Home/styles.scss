@@ -8,6 +8,8 @@
 @import '../../styles/variables/mixins.scss';
 
 .home-page-style {
+  height: 100vh;
+
   .all-page-style {
     background-image: url('../../assets/images/Bg-Top.svg');
     background-repeat: no-repeat;
@@ -123,6 +125,7 @@
         width: 100%;
         margin-bottom: 18px;
         font-size: 14px;
+        background-color: #f7f9fb;
       }
 
       &:focus {
@@ -182,8 +185,9 @@
   .job-post-section {
     background-image: url('../../assets/images/BackgroundMid.svg');
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: left bottom;
+    padding: 100px 0px 120px 0px;
+    min-height: 850px;
 
     @include desktop-extra-lg {
       background-size: contain;
@@ -191,18 +195,14 @@
 
     @include mobile {
       background-image: none;
+      padding: 48px 12px 60px 12px;
     }
   }
 
   .cards-container {
-    padding: 100px 0px 120px 0px;
     max-width: 1128px;
     display: block;
     margin: auto;
-
-    @include mobile {
-      padding: 48px 12px 60px 12px;
-    }
 
     .highlighted-text {
       color: #1e2432;
@@ -323,6 +323,7 @@
     color: #2d66fe;
     border: none;
     margin-top: 48px;
+    overscroll-behavior: auto;
 
     &:focus {
       outline: none;

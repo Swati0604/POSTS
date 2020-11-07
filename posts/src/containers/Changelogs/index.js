@@ -7,6 +7,7 @@ import { withGoogleSheets } from 'react-db-google-sheets';
 
 //Images
 import backIcon from '../../assets/images/back-icon.svg';
+import notFound from '../../assets/images/not-found.svg';
 
 // Style
 import './styles.scss';
@@ -250,11 +251,22 @@ class Changelogs extends Component {
                 {tabIndex === 3 &&
                   this.props.db.Changelogs.filter(
                     (data) => data.Type === 'Improvement'
-                  ).length === 0 &&
-                  this.state.visibleFix < this.props.db.Changelogs.length && (
-                    <p className='null-text'>
-                      We will soon update Improvement too, stay tuned
-                    </p>
+                  ).length === 0 && (
+                    <div class='null-type-container'>
+                      <img
+                        src={notFound}
+                        alt='not-found'
+                        className='null-image'
+                      />
+                      <p className='null-heading'>
+                        Sorry! We don't have Improvements right now.
+                      </p>
+                      <p className='null-text'>
+                        Check back in some time. We will update version 2 soon{' '}
+                        <br />
+                        So, finger crossed 🤞.
+                      </p>
+                    </div>
                   )}
               </div>
 
@@ -301,11 +313,22 @@ class Changelogs extends Component {
               <div className='null-container'>
                 {tabIndex === 4 &&
                   this.props.db.Changelogs.filter((data) => data.Type === 'Fix')
-                    .length === 0 &&
-                  this.state.visibleFix < this.props.db.Changelogs.length && (
-                    <p className='null-text'>
-                      We will soon update Fix Jobs too, stay tuned
-                    </p>
+                    .length === 0 && (
+                    <div class='null-type-container'>
+                      <img
+                        src={notFound}
+                        alt='not-found'
+                        className='null-image'
+                      />
+                      <p className='null-heading'>
+                        Sorry! We don't have Fixes right now.
+                      </p>
+                      <p className='null-text'>
+                        Check back in some time. We will update version 2 soon{' '}
+                        <br />
+                        So, finger crossed 🤞.
+                      </p>
+                    </div>
                   )}
               </div>
             </div>

@@ -148,21 +148,57 @@
     justify-content: center;
   }
 
-  .null-text {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    font-size: 40px;
-    font-weight: 500;
-    justify-content: center;
-    height: 300px;
-  }
-
   .tabs {
     width: 40%;
 
     @include mobile {
       width: 100%;
+    }
+  }
+
+  .null-type-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .null-text {
+    font-family: Nunito;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    margin-top: 6px;
+    color: $theme-secondary;
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+
+  .null-image {
+    height: 250px;
+    width: 275px;
+    margin-top: 72px;
+
+    @include mobile {
+      margin-top: 36px;
+    }
+  }
+
+  .null-heading {
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 120%;
+    margin-top: 24px;
+    color: $theme-primary;
+    margin-bottom: 0;
+    text-align: center;
+
+    @include mobile {
+      font-size: 21px;
     }
   }
 }

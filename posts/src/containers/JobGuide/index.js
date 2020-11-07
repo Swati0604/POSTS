@@ -12,14 +12,8 @@ import backIcon from '../../assets/images/back-icon.svg';
 import './styles.scss';
 
 class JobGuide extends Component {
-  constructor(props) {
-    super(props);
-    this.myRef = React.createRef(); // Create a ref object
-  }
+  
 
-  componentDidMount() {
-    this.myRef.current.scrollTo(0, 0);
-  }
   render() {
     const selectedJobId = this.props.match.params.id;
     return (
@@ -99,8 +93,8 @@ class JobGuide extends Component {
                 this.props.db.Guide &&
                 this.props.db.Guide.map(
                   (data, index) =>
-                    index !== parseInt(selectedJobId) && (
-                      <div className='col-md-4'>
+                    index !== parseInt(selectedJobId) - 1 && (
+                      <div className='col-md-4' key={index}>
                         <div className='top-space'>
                           <JobGuideCard
                             title={data.Title}
