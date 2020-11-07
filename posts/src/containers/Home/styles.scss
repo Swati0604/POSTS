@@ -188,6 +188,7 @@
     background-position: left bottom;
     padding: 100px 0px 120px 0px;
     min-height: 850px;
+    overflow-anchor: none;
 
     @include desktop-extra-lg {
       background-size: contain;
