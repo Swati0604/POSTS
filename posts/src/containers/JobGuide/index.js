@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import JobGuideCard from '../../components/JobGuideCard';
@@ -11,13 +15,77 @@ import backIcon from '../../assets/images/back-icon.svg';
 // Style
 import './styles.scss';
 
+const options = {
+  margin: 30,
+  nav: true,
+  dots: false,
+  autoplay: false,
+  navText: [
+    "<div class='nav-btn prev-slide'></div>",
+    "<div class='nav-btn next-slide'></div>",
+  ],
+  smartSpeed: 1000,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    400: {
+      items: 1,
+    },
+    600: {
+      items: 2,
+    },
+    700: {
+      items: 3,
+    },
+    1000: {
+      items: 3,
+    },
+  },
+};
+
+const screenWidth = window.innerWidth;
+
 class JobGuide extends Component {
-  
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isMobile: false,
+    };
+  }
+
+  componentDidMount() {
+    this.checkViewportType();
+
+    window.addEventListener('resize', this.resize.bind(this));
+    this.resize();
+  }
+
+  resize = () => {
+    this.setState({ isMobile: window.innerWidth < 768 });
+  };
+
+  checkViewportType = () => {
+    this.setState({
+      isMobile: screenWidth > 768 ? false : true,
+    });
+  };
 
   render() {
     const selectedJobId = this.props.match.params.id;
+    const { isMobile } = this.state;
+
     return (
       <div className='job-guide-page-style' ref={this.myRef}>
+        <Helmet>
+          <meta
+            charSet='utf-8'
+            name='description'
+            content='Match By Design Sundays'
+          />
+          <title>Job Guide | Match By Design Sundays</title>
+        </Helmet>
         <div class='all-page-style'>
           <div class='header-banner-style'>
             <Header />
@@ -37,7 +105,7 @@ class JobGuide extends Component {
               this.props.db.Guide &&
               this.props.db.Guide.map(
                 (data, index) =>
-                  index === parseInt(selectedJobId) - 1 && (
+                  data.Slug === selectedJobId && (
                     <div key={index}>
                       <div class='text-box'>
                         <h5 class='heading'>{data.Title}</h5>
@@ -89,24 +157,47 @@ class JobGuide extends Component {
             </div>
 
             <div className='row'>
-              {this.props.db &&
+              {isMobile ? (
+                this.props.db &&
                 this.props.db.Guide &&
                 this.props.db.Guide.map(
                   (data, index) =>
-                    index !== parseInt(selectedJobId) - 1 && (
-                      <div className='col-md-4' key={index}>
+                    data.Slug !== selectedJobId && (
+                      <div className='item' key={index}>
                         <div className='top-space'>
                           <JobGuideCard
                             title={data.Title}
                             articleType='Job Application'
                             readingTime={data.Time}
-                            selectedArticleId={data.ID}
+                            selectedArticleId={data.Slug}
                             cardImg={data.Image}
                           />
                         </div>
                       </div>
                     )
-                )}
+                )
+              ) : (
+                <OwlCarousel className='owl-theme' {...options}>
+                  {this.props.db &&
+                    this.props.db.Guide &&
+                    this.props.db.Guide.map(
+                      (data, index) =>
+                        data.Slug !== selectedJobId && (
+                          <div className='item' key={index}>
+                            <div className='top-space'>
+                              <JobGuideCard
+                                title={data.Title}
+                                articleType='Job Application'
+                                readingTime={data.Time}
+                                selectedArticleId={data.Slug}
+                                cardImg={data.Image}
+                              />
+                            </div>
+                          </div>
+                        )
+                    )}
+                </OwlCarousel>
+              )}
             </div>
 
             <p className='job-guide-para text-center top-space'>

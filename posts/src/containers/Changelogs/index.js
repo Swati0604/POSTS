@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Tabs from '../../components/Tabs';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
@@ -69,6 +70,14 @@ class Changelogs extends Component {
     const { tabIndex } = this.state;
     return (
       <div className='changelogs-page-style'>
+        <Helmet>
+          <meta
+            charSet='utf-8'
+            name='description'
+            content='Match By Design Sundays'
+          />
+          <title>Changelog | Match By Design Sundays</title>
+        </Helmet>
         <div className='all-page-style'>
           <div className='header-banner-style'>
             <Header currentPage={'changelogs'} />

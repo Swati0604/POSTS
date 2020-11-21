@@ -1,0 +1,94 @@
+// ######################################## //
+// ## HEADER.SCSS ## //
+// ######################################## //\
+
+// Navbar Section Style
+
+@import '../../styles/variables/colors.scss';
+@import '../../styles/variables/mixins.scss';
+
+.privacy-policy-page-style {
+  overflow-anchor: none;
+
+  .all-page-style {
+    background-image: url('../../assets/images/Bg-Top.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include desktop-extra-lg {
+      background-size: cover;
+      max-height: 600px;
+    }
+
+    @include mobile {
+      background-image: none;
+    }
+  }
+  .header-banner-style {
+    max-width: 1128px;
+    display: block;
+    margin: auto;
+    padding: 2px 0px 0px 0px;
+
+    @include mobile {
+      padding: 0px 12px 64px 12px;
+    }
+
+    .text-box {
+      padding: 150px 0px 18px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      @include mobile {
+        padding: 18px 0px 18px 0px;
+      }
+    }
+
+    .heading {
+      color: $theme-primary;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 130%;
+      margin-bottom: 12px;
+
+      @include mobile {
+        font-size: 24px;
+        width: 100%;
+      }
+
+      &.title {
+        font-size: 46px;
+      }
+    }
+
+    .post-info-para {
+      font-family: Nunito;
+      color: $theme-secondary;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 36px;
+      color: $theme-secondary;
+      margin-bottom: 8px;
+
+      @include mobile {
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  .policy-text-box {
+    margin-top: 48px;
+  }
+
+  .privacy-policy-box {
+    max-width: 700px;
+    display: block;
+    margin: auto;
+    padding: 2px 0px 0px 0px;
+  }
+}

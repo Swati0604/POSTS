@@ -15,6 +15,7 @@ class Cards extends Component {
       experience,
       location,
       href,
+      isRemote,
       companyImg,
     } = this.props;
     return (
@@ -27,16 +28,22 @@ class Cards extends Component {
           />
         </div>
         <div className='card-content'>
-          <p className='heading'>{position}</p>
+          <div className='position-remote'>
+            <p className='heading'>{position}</p>
+            {isRemote === 'Yes' && <p className='remote'>Remote</p>}
+          </div>
           <p className='company-name'>{company}</p>
           <div className='icons-text'>
             <img alt='icons' className='icons' src={jobTypeIcon} />
             <p className='requirement'>{jobType}</p>
           </div>
-          <div className='icons-text'>
-            <img alt='icons' className='icons' src={locationIcon} />
-            <p className='requirement'>{location}</p>
-          </div>
+          {location && (
+            <div className='icons-text'>
+              <img alt='icons' className='icons' src={locationIcon} />
+
+              <p className='requirement'>{location}</p>
+            </div>
+          )}
           <div className='icons-text'>
             {this.props.experience && (
               <img alt='icons' className='icons' src={experienceIcon} />

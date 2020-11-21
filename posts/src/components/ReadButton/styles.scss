@@ -8,11 +8,11 @@
 @import '../../styles/variables/mixins.scss';
 
 .apply-btn {
-  background-color: #f7f9fb;
+  background-color: $white;
   position: absolute;
   bottom: 20px;
   color: $btn-color;
-  border: none;
+  border: 1px solid rgba(104, 112, 134, 0.2);
   border-radius: 4px;
   width: 96px;
   height: 32px;

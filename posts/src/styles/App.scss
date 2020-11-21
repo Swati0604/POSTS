@@ -36,3 +36,63 @@ a {
 }
 
 // main content section
+
+.product-hunt {
+  position: absolute;
+  bottom: 30px;
+  z-index: 99;
+  left: 35px;
+}
+
+.owl-theme .owl-nav {
+  position: absolute;
+  top: -90px;
+  right: 0px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.owl-carousel .owl-nav button.owl-prev {
+  border-radius: 0px;
+  padding: 1px 7px !important;
+  width: 48px;
+  height: 48px;
+  background-image: url('../assets/images/right-arrow.svg');
+  background-color: none;
+
+  &:hover {
+    background: none;
+    background-image: url('../assets/images/right-arrow.svg');
+    background-repeat: none;
+    background-size: cover;
+  }
+}
+
+.owl-carousel .owl-nav button:focus {
+  outline: none;
+}
+.owl-carousel .owl-nav button.owl-next {
+  background-color: $white;
+  border-radius: 0px;
+  padding: 1px 7px !important;
+  width: 48px;
+  height: 48px;
+  background-image: url('../assets/images/left-arrow.svg');
+  background-color: none;
+
+  &:hover {
+    background: none;
+    background-image: url('../assets/images/left-arrow.svg');
+  }
+}
+
+.owl-theme .owl-nav:hover {
+  background: none;
+}
+
+.owl-carousel {
+  @include mobile {
+    display: none;
+  }
+}
