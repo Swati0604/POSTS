@@ -190,9 +190,9 @@ class Home extends Component {
 
             <div className='text-box'>
               <p className='status-card'>Early Access</p>
-              <h5 className='heading'>
+              <h1 className='heading'>
                 Your destination for handpicked Design Jobs
-              </h5>
+              </h1>
 
               <p className='para'>
                 Subscribe to get weekly job updates and guides.
@@ -204,7 +204,7 @@ class Home extends Component {
               method='post'
               id='mc-embedded-subscribe-form'
               name='mc-embedded-subscribe-form'
-              class='validate'
+              className='validate'
               target='_blank'
             >
               <div className='register-box' id='mc_embed_signup'>
@@ -239,7 +239,7 @@ class Home extends Component {
             <div className='cards-container'>
               <div className='cards-top-section'>
                 <div className='text-box'>
-                  <h5 className='post-heading'>Jobs by Location</h5>
+                  <h2 className='post-heading'>Jobs by Location</h2>
                   <p className='post-info-para'>
                     Find jobs by your favourite city
                   </p>
@@ -274,7 +274,7 @@ class Home extends Component {
               <div className='cards-container'>
                 <div className='cards-top-section'>
                   <div className='text-box'>
-                    <h5 className='post-heading'>Job Posts</h5>
+                    <h2 className='post-heading'>Job Posts</h2>
                     <p className='post-info-para'>
                       <span className='highlighted-text'>
                         {this.props.db.Sheet1.length}+ Design Jobs

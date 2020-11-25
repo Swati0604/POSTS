@@ -52,6 +52,7 @@ class JobGuide extends Component {
 
     this.state = {
       isMobile: false,
+      value: 1,
     };
   }
 
@@ -70,6 +71,24 @@ class JobGuide extends Component {
     this.setState({
       isMobile: screenWidth > 768 ? false : true,
     });
+  };
+
+  handleSubmit = async () => {
+    try {
+      const response = await fetch(
+        'https://v1.nocodeapi.com/swati/google_sheets/BvYPVAuSukqkBQVR?tabId=Sheet1',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify([[this.state.value]]),
+        }
+      );
+      await response.json();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   render() {
@@ -142,6 +161,8 @@ class JobGuide extends Component {
               )}
           </div>
         </div>
+
+        <button onClick={() => this.handleSubmit()}>Like</button>
 
         {/* <div className='update-info-container'>
           <p className='update-info'>🎉 Updating New Jobs in 4:00:00 Hrs</p>
